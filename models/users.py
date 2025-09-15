@@ -1,5 +1,5 @@
-from sqlalchemy import Table, Column, Integer, Text
-from sqlalchemy.orm import declarative_base
+from sqlalchemy import Column, Integer, Text, ForeignKey
+from sqlalchemy.orm import declarative_base, relationship
 
 Base = declarative_base()
 
@@ -10,3 +10,6 @@ class Users(Base):
     name = Column(Text)
     email = Column(Text)
     password = Column(Text)
+
+    team_id = Column(Integer, ForeignKey("teams.id"))
+    team = relationship("Team", back_populates="members")
