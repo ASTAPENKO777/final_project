@@ -1,4 +1,4 @@
-from pydantic import BaseModel, EmailStr, Field
+from pydantic import BaseModel, Field
 from typing import Optional
 from datetime import datetime
 
@@ -12,3 +12,6 @@ class Tournament(BaseModel):
 
 class TournamentRead(BaseModel):
     id: int
+
+    class Config:
+        orm_mode = True

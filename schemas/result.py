@@ -1,5 +1,4 @@
-from pydantic import BaseModel, EmailStr, Field
-from typing import List
+from pydantic import BaseModel, Field
 
 
 class Result(BaseModel):
@@ -15,3 +14,6 @@ class ResultRead(Result):
     id: int
     tournament_id: int
     team_id: int
+
+    class Config:
+        orm_mode = True

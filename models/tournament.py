@@ -1,10 +1,10 @@
 from sqlalchemy import Column, Integer, Text, DateTime
 from sqlalchemy.orm import relationship
 
-from models.result import Base
+from .base import Base
 
 
-class Tournaments(Base):
+class Tournament(Base):
     __tablename__ = "tournaments"
     id = Column(Integer, primary_key=True, index=True)
     title = Column(Text)
