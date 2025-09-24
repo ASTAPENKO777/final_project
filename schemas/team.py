@@ -1,5 +1,6 @@
-from pydantic import BaseModel, EmailStr, Field
+from pydantic import BaseModel, Field
 from typing import List
+
 from schemas.user import UserRead
 
 
@@ -11,3 +12,6 @@ class TeamRead(BaseModel):
     id: int
     name: str
     members: List[UserRead] = []
+
+    class Config:
+        orm_mode = True

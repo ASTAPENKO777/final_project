@@ -1,7 +1,7 @@
 from sqlalchemy import Column, Integer, Text
 from sqlalchemy.orm import relationship
 
-from models.result import Base
+from .base import Base
 
 
 class Team(Base):
@@ -10,4 +10,4 @@ class Team(Base):
     name = Column(Text)
 
     members = relationship("User", back_populates="team")
-    results = relationship("Result", back_populates="team")
+    result = relationship("Result", back_populates="team")
