@@ -14,4 +14,4 @@ class TeamRead(BaseModel):
     members: List[UserRead] = []
 
     class Config:
-        orm_mode = True
+        from_attributes = True
