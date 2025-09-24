@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from routers import users, team
+from routers import users, team, result
 
 
 app = FastAPI()
@@ -12,3 +12,4 @@ def home():
 
 app.include_router(users.router)
 app.include_router(team.router)
+app.include_router(result.router)
