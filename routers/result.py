@@ -4,7 +4,7 @@ from sqlalchemy.orm import Session
 from create_db import get_db
 import schemas.result
 import models.result
-router = APIRouter(prefix='/result', tags=['result'])
+router = APIRouter(prefix='/result', tags=['Result'])
 
 @router.post('/', response_model=schemas.result.ResultRead)
 def create_result(result: schemas.result.ResultCreate, db: Session = Depends(get_db)):
