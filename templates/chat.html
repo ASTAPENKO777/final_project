@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Chat</title>
+    </head>
+    <body>
+        <div style="text-align: center; margin-bottom: 20px;">
+        <h1 style="font-family: Arial, sans-serif;">WebSocket Chat</h1>
+        </div>
+        <form action="" onsubmit="sendMessage(event)">
+            <div class="form-group" style="display: flex; justify-content: center;">
+            <input type="text" id="messageText" autocomplete="off" style="width: 400px; height: 30px; font-family: Arial, Helvetica, sans-serif;"/>
+            <button style="border-radius: 2%; background-color: #4CAF50; color: white; width: 200px; height: 30px;"><span style="font-weight: bold; font-family: Arial, Helvetica, sans-serif; " >Send</span> </button>
+        </div>
+        </form>
+        <ul id='messages'>
+        </ul>
+        <script>
+            var ws = new WebSocket("ws://localhost:8000/ws");
+            ws.onmessage = function(event) {
+                var messages = document.getElementById('messages')
+                var message = document.createElement('li')
+                var content = document.createTextNode(event.data)
+                message.appendChild(content)
+                messages.appendChild(message)
+            };
+            function sendMessage(event) {
+                var input = document.getElementById("messageText")
+                ws.send(input.value)
+                input.value = ''
+                event.preventDefault()
+            }
+        </script>
+    </body>
+</html>
