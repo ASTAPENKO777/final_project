@@ -17,3 +17,7 @@ class ResultRead(Result):
 
     class Config:
         from_attributes = True
+
+class ResultWithDetail(ResultRead):
+    team_name: str
+    tournament_title: str
