@@ -1,3 +1,5 @@
 fastapi
 uvicorn[standart]
 sqlalchemy
+python-dotenv
+Jinja2
