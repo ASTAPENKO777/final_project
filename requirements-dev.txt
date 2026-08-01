@@ -1,0 +1,4 @@
+pytest
+httpx
+httpx2
+email-validator
